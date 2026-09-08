@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Replaceable atomic catalog and immutable-release storage ports for Orbyss Forms localization.</Description>
+    <Description>Replaceable atomic localization catalog and immutable-release storage ports.</Description>
     <PackageId>Orbyss.Localization.Storage.Abstractions</PackageId>
-    <PackageTags>orbyss-forms;localization;storage;abstractions</PackageTags>
+    <PackageTags>orbyss;localization;storage;abstractions</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

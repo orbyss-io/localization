@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Atomic content-verified filesystem storage for Orbyss Forms localization catalogs and immutable releases.</Description>
+    <Description>Atomic content-verified filesystem storage for localization catalogs and immutable releases.</Description>
     <PackageId>Orbyss.Localization.Storage.FileSystem</PackageId>
-    <PackageTags>orbyss-forms;localization;storage;filesystem</PackageTags>
+    <PackageTags>orbyss;localization;storage;filesystem</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

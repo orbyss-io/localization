@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Bounded in-memory reference persistence for Orbyss Forms Localization tests and development.</Description>
+    <Description>Bounded in-memory reference persistence for Localization tests and development.</Description>
     <PackageId>Orbyss.Localization.Storage.InMemory</PackageId>
-    <PackageTags>orbyss-forms;localization;storage;in-memory;testing</PackageTags>
+    <PackageTags>orbyss;localization;storage;in-memory;testing</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

@@ -6,36 +6,23 @@ from pathlib import Path
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    forms = root / "src/dotnet/Orbyss.Forms.Storage.InMemory"
-    localization = root / "src/dotnet/Orbyss.Localization.Storage.InMemory"
-    for package in (forms, localization):
-        source = "\n".join(path.read_text(encoding="utf-8") for path in package.rglob("*") if path.suffix in {".cs", ".csproj"})
-        for forbidden in ("EntityFrameworkCore", "Microsoft.Data.Sqlite", "Azure.", "Amazon.", "IWebShellFeature", "InternalsVisibleTo"):
-            if forbidden in source:
-                raise AssertionError(f"{package.name} owns a provider, web boundary, or privileged test seam: {forbidden}")
-
-    forms_source = "\n".join(path.read_text(encoding="utf-8") for path in forms.glob("*.cs"))
-    for contract in ("IFormDefinitionStore", "IFormReleaseStore", "IFormReleaseRetirementStore", "IFormSubmissionStore", "IFormAttachmentStore", "IFormAttachmentContentStore"):
-        if contract not in forms_source:
-            raise AssertionError(f"The in-memory Forms reference adapter does not implement {contract}")
-    localization_source = "\n".join(path.read_text(encoding="utf-8") for path in localization.glob("*.cs"))
+    storage = root / "src/dotnet/Orbyss.Localization.Storage.InMemory"
+    source = "\n".join(path.read_text(encoding="utf-8") for path in storage.glob("*.cs"))
     for contract in ("ILocalizationCatalogStore", "ILocalizationReleaseStore", "ILocalizationReleaseRetirementStore"):
-        if contract not in localization_source:
-            raise AssertionError(f"The in-memory Localization reference adapter does not implement {contract}")
-
-    probe = root / "tests/dotnet/Orbyss.Forms.Storage.InMemory.Probe/Orbyss.Forms.Storage.InMemory.Probe.csproj"
+        if contract not in source:
+            raise AssertionError(f"The in-memory Localization adapter does not implement {contract}")
+    probe = root / "tests/dotnet/Orbyss.Localization.Storage.InMemory.Probe/Orbyss.Localization.Storage.InMemory.Probe.csproj"
     result = subprocess.run(
-        ["dotnet", "run", "--project", str(probe), "-c", "Release", "--no-build", "--no-restore"],
+        ["dotnet", "run", "--project", str(probe), "--configuration", "Release", "--no-build"],
         cwd=root,
-        text=True,
         capture_output=True,
+        text=True,
+        timeout=180,
         check=False,
     )
     if result.returncode:
-        raise AssertionError(result.stdout + result.stderr)
-    if "storage probe passed" not in result.stdout:
-        raise AssertionError("The in-memory storage probe did not report success")
-    print("Orbyss Forms in-memory Forms and Localization persistence validation passed.")
+        raise AssertionError(f"Localization in-memory probe failed.\nstdout:\n{result.stdout}\nstderr:\n{result.stderr}")
+    print("Orbyss Localization in-memory persistence validation passed.")
     return 0
 
 

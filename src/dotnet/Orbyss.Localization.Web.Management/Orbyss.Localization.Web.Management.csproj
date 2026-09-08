@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Description>Optional CShells localization management endpoints with governed import, export, lifecycle, and release-diff composition.</Description>
     <PackageId>Orbyss.Localization.Web.Management</PackageId>
-    <PackageTags>orbyss-forms;localization;i18n;cshells;management</PackageTags>
+    <PackageTags>orbyss;localization;i18n;cshells;management</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

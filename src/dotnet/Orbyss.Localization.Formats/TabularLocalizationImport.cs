@@ -136,7 +136,7 @@ internal static class TabularLocalizationImport
         }
         catch (JsonException)
         {
-            throw new LocalizationImportFormatException("PKLI121", "Tabular arguments must use the bounded Orbyss Forms JSON representation.");
+            throw new LocalizationImportFormatException("PKLI121", "Tabular arguments must use the bounded Orbyss Localization JSON representation.");
         }
     }
 }

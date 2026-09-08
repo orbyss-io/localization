@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Governed MCP tool methods for Orbyss Forms localization management and runtime inspection.</Description>
+    <Description>Governed MCP tool methods for localization management and runtime inspection.</Description>
     <PackageId>Orbyss.Localization.Tool</PackageId>
-    <PackageTags>orbyss-forms;localization;mcp;tools</PackageTags>
+    <PackageTags>orbyss;localization;mcp;tools</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

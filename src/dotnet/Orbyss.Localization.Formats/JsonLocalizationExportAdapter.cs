@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace Orbyss.Localization.Formats;
 
-/// <summary>Exports deterministic structured Orbyss Forms JSON localization documents.</summary>
+/// <summary>Exports deterministic structured Orbyss Localization JSON documents.</summary>
 public sealed class JsonLocalizationExportAdapter : ILocalizationExportFormatAdapter
 {
     /// <summary>Bounds applied while projecting and encoding JSON output.</summary>

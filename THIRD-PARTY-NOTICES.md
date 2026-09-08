@@ -1,9 +1,5 @@
 # Third-party notices
 
-## Elsa Foundation
-
-The Orbyss Forms Host composition and Tasks lifecycle are derived in part from the MIT-licensed Elsa Foundation
-project by Elsa Workflows contributors: <https://github.com/elsa-workflows/elsa-foundation>.
-
-Orbyss Forms retains the lifecycle concepts while using Orbyss Forms namespaces, a reduced dependency surface,
-a feature-free runtime boundary, runnable-host release descriptor, and its own implementation and tests.
+Orbyss Localization consumes third-party libraries through declared NuGet dependencies. Their license metadata is
+available from the package registry and remains governed by each dependency's license. No third-party source code
+is vendored into this repository.

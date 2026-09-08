@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Description>Optional CShells immutable localization runtime resolution and bundle endpoints.</Description>
     <PackageId>Orbyss.Localization.Web.Runtime</PackageId>
-    <PackageTags>orbyss-forms;localization;i18n;cshells;runtime</PackageTags>
+    <PackageTags>orbyss;localization;i18n;cshells;runtime</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

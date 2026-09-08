@@ -1,0 +1,7 @@
+<Project>
+  <PropertyGroup>
+    <LocalizationVersion>0.1.0</LocalizationVersion>
+    <Version>$(LocalizationVersion)</Version>
+    <PackageVersion>$(LocalizationVersion)</PackageVersion>
+  </PropertyGroup>
+</Project>

@@ -15,7 +15,7 @@ namespace Orbyss.Localization.Web.Management;
 /// <summary>Composes the optional governed localization management plane into one selected shell.</summary>
 [ShellFeature(
     name: "Orbyss.Localization.Web.Management",
-    DisplayName = "Orbyss Forms Localization Management",
+    DisplayName = "Orbyss Localization Management",
     Description = "Provides authenticated catalog, import, export, lifecycle, and release-diff endpoints.")]
 public sealed class OrbyssLocalizationManagementFeature(ShellSettings settings) : IWebShellFeature
 {
@@ -33,7 +33,7 @@ public sealed class OrbyssLocalizationManagementFeature(ShellSettings settings) 
         if (!endpoints.ServiceProvider.GetServices<ILocalizationExportFormatAdapter>().Any()) throw new InvalidOperationException("Localization management web composition requires at least one export adapter.");
         var options = endpoints.ServiceProvider.GetRequiredService<IOptions<LocalizationManagementWebOptions>>().Value;
         ValidateOptions(options);
-        var group = endpoints.MapGroup(options.RoutePrefix).WithTags("Orbyss Forms Localization Management");
+        var group = endpoints.MapGroup(options.RoutePrefix).WithTags("Orbyss Localization Management");
 
         var find = group.MapGet("/catalogs", async (string? search, int? first, int? maximum, ILocalizationCatalogQueries queries, CancellationToken cancellationToken) =>
             Results.Ok(await queries.FindAsync(search, first ?? 0, maximum ?? 100, cancellationToken).ConfigureAwait(false)));

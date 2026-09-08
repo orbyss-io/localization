@@ -1,6 +1,6 @@
 # Orbyss.Localization.Formats
 
-Bounded, mutation-free adapters for CSV, Orbyss Forms JSON, XLSX, XLIFF 2.1, and GNU PO imports and exports.
+Bounded, mutation-free adapters for CSV, Orbyss Localization JSON, XLSX, XLIFF 2.1, and GNU PO imports and exports.
 
 Each adapter converts untrusted bytes into the provider-neutral `LocalizationImportDocument`.
 Catalog mutation remains the responsibility of the preview/apply coordinator, so parsing a file

@@ -7,7 +7,7 @@ public sealed class LocalizationRuntimeWebOptions
     public const string SectionName = "Orbyss:Localization:Runtime";
 
     /// <summary>Gets or sets the fixed route prefix mapped by the selected feature.</summary>
-    public string RoutePrefix { get; set; } = "/_orbyss-forms/localization/runtime";
+    public string RoutePrefix { get; set; } = "/_orbyss-localization/runtime";
 
     /// <summary>Gets or sets whether immutable translation reads are public.</summary>
     public bool AllowAnonymous { get; set; } = true;

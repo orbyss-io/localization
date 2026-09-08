@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 jobs:
-  dotnet:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - name: Check out source
@@ -25,80 +25,27 @@ jobs:
           global-json-file: global.json
       - name: Restore and build
         run: |
-          dotnet restore Orbyss.Forms.slnx --locked-mode --configfile NuGet.config
-          dotnet build Orbyss.Forms.slnx -c Release --no-restore
-      - name: Validate contracts
+          dotnet restore Orbyss.Localization.slnx --locked-mode --configfile NuGet.config
+          dotnet build Orbyss.Localization.slnx -c Release --no-restore
+      - name: Validate Localization contracts
         run: |
-          python tests/validate_forms_management.py
-          python tests/validate_forms_operations.py
-          python tests/validate_forms_localization_contracts.py
+          python tests/validate_localization_contracts.py
+          python tests/validate_localization_management.py
           python tests/validate_inmemory_storage.py
-      - name: Pack NuGet family
+      - name: Pack Localization family
         shell: bash
         run: |
-          dotnet pack Orbyss.Forms.slnx -c Release --no-build -p:PackageOutputPath="$PWD/artifacts/nuget"
+          dotnet pack Orbyss.Localization.slnx -c Release --no-build -p:PackageOutputPath="$PWD/artifacts/nuget"
           shopt -s nullglob
           packages=(artifacts/nuget/*.nupkg)
-          [[ ${#packages[@]} -eq 27 ]] || { echo "Expected 27 Forms/Localization NuGet packages, found ${#packages[@]}." >&2; exit 1; }
+          [[ ${#packages[@]} -eq 11 ]] || { echo "Expected 11 Localization packages, found ${#packages[@]}." >&2; exit 1; }
+          for package in "${packages[@]}"; do
+            [[ "$(basename "$package")" == Orbyss.Localization.* ]] || { echo "Unexpected package: $package" >&2; exit 1; }
+          done
           python tests/validate_package_metadata.py --packages artifacts/nuget
-
-  frontend:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check out source
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: "3.13"
-      - name: Set up Node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version: "24.20.0"
-      - name: Set up pinned npm
-        run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
-      - name: Validate frontend contracts
-        run: |
-          python tests/validate_forms_frontend_ci.py
-          python tests/validate_frontend_publication.py
-          python tests/validate_forms_frontend.py --install
-          python tests/validate_forms_frontend_packages.py
-          python tests/validate_forms_physical_acceptance.py
-      - name: Pack npm family
-        working-directory: src/typescript
-        shell: bash
-        run: |
-          mkdir -p ../../artifacts/npm
-          npm pack --workspaces --pack-destination "$PWD/../../artifacts/npm" --ignore-scripts --json > "$PWD/../../artifacts/npm/pack.json"
-          shopt -s nullglob
-          packages=(../../artifacts/npm/*.tgz)
-          [[ ${#packages[@]} -eq 12 ]] || { echo "Expected 12 Forms npm packages, found ${#packages[@]}." >&2; exit 1; }
-
-  browser:
-    runs-on: ubuntu-latest
-    strategy:
-      fail-fast: false
-      matrix:
-        engine: [chromium, firefox, webkit]
-    steps:
-      - name: Check out source
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - name: Set up Python
-        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
-        with:
-          python-version: "3.13"
-      - name: Set up Node
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version: "24.20.0"
-      - name: Set up pinned npm
-        run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
-      - name: Validate Forms in ${{ matrix.engine }}
-        run: python tests/validate_forms_browser.py --install --install-browser --engines ${{ matrix.engine }}
-      - name: Upload browser evidence
-        if: always()
+      - name: Upload packages
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: forms-browser-${{ matrix.engine }}-${{ github.sha }}
-          path: artifacts/forms-browser/
-          if-no-files-found: ignore
+          name: orbyss-localization-${{ github.sha }}
+          path: artifacts/nuget/*.nupkg
+          if-no-files-found: error

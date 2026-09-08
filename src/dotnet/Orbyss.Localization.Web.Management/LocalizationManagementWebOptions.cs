@@ -7,7 +7,7 @@ public sealed class LocalizationManagementWebOptions
     public const string SectionName = "Orbyss:Localization:Management";
 
     /// <summary>Gets or sets the route prefix mapped by the selected feature.</summary>
-    public string RoutePrefix { get; set; } = "/_orbyss-forms/localization";
+    public string RoutePrefix { get; set; } = "/_orbyss-localization";
 
     /// <summary>Gets or sets an optional named policy for management reads; the default policy is used when absent.</summary>
     public string? ReadPolicy { get; set; }

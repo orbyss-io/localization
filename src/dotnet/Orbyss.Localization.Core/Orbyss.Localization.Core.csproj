@@ -2,7 +2,7 @@
   <PropertyGroup>
     <Description>Provider-neutral localization validation and immutable-release runtime resolution.</Description>
     <PackageId>Orbyss.Localization.Core</PackageId>
-    <PackageTags>orbyss-forms;localization;i18n;icu;validation</PackageTags>
+    <PackageTags>orbyss;localization;i18n;icu;validation</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

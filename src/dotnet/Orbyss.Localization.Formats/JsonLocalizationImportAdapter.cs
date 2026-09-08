@@ -2,7 +2,7 @@ using System.Text.Json;
 
 namespace Orbyss.Localization.Formats;
 
-/// <summary>Parses the bounded Orbyss Forms JSON localization interchange representation.</summary>
+/// <summary>Parses the bounded Orbyss Localization JSON interchange representation.</summary>
 public sealed class JsonLocalizationImportAdapter : ILocalizationImportFormatAdapter
 {
     /// <summary>Bounds applied while decoding JSON input.</summary>

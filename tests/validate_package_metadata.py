@@ -7,7 +7,7 @@ from xml.etree import ElementTree
 
 
 ROOT = Path(__file__).resolve().parents[1]
-EXPECTED_REPOSITORY = "https://github.com/orbyss-io/forms"
+EXPECTED_REPOSITORY = "https://github.com/orbyss-io/localization"
 
 
 def local_name(tag: str) -> str:
@@ -24,12 +24,9 @@ def main() -> int:
     args = parser.parse_args()
 
     expected_version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    expected_ids = {
-        project.stem
-        for project in (ROOT / "src/dotnet").glob("*/*.csproj")
-    }
-    if len(expected_ids) != 27:
-        raise AssertionError(f"Expected 27 source package projects, found {len(expected_ids)}.")
+    expected_ids = {project.stem for project in (ROOT / "src/dotnet").glob("*/*.csproj")}
+    if len(expected_ids) != 11:
+        raise AssertionError(f"Expected 11 Localization package projects, found {len(expected_ids)}.")
 
     found: set[str] = set()
     for package in sorted(args.packages.glob("*.nupkg")):
@@ -38,8 +35,7 @@ def main() -> int:
             if len(nuspecs) != 1:
                 raise AssertionError(f"{package.name} must contain exactly one nuspec.")
             nuspec = archive.read(nuspecs[0])
-            root = ElementTree.fromstring(nuspec)
-        metadata = child(root, "metadata")
+            metadata = child(ElementTree.fromstring(nuspec), "metadata")
         package_id = child(metadata, "id").text or ""
         version = child(metadata, "version").text or ""
         repository = child(metadata, "repository")
@@ -49,15 +45,17 @@ def main() -> int:
             raise AssertionError(f"{package_id} has version {version}, expected {expected_version}.")
         if repository.attrib.get("url") != EXPECTED_REPOSITORY:
             raise AssertionError(f"{package_id} has the wrong repository URL.")
-        if not package_id.startswith(("Orbyss.Forms.", "Orbyss.Localization.")):
-            raise AssertionError(f"{package_id} is outside the approved package namespaces.")
+        if not package_id.startswith("Orbyss.Localization."):
+            raise AssertionError(f"{package_id} is outside the Localization namespace.")
         if b"ProgramKit" in nuspec:
             raise AssertionError(f"{package_id} still exposes a ProgramKit package identity.")
         found.add(package_id)
 
     if found != expected_ids:
-        raise AssertionError(f"Package set mismatch. Missing={sorted(expected_ids - found)}, extra={sorted(found - expected_ids)}")
-    print("Exact 27-package Orbyss Forms/Localization NuGet metadata contract passed.")
+        raise AssertionError(
+            f"Package set mismatch. Missing={sorted(expected_ids - found)}, extra={sorted(found - expected_ids)}"
+        )
+    print("Exact 11-package Orbyss Localization NuGet metadata contract passed.")
     return 0
 
 

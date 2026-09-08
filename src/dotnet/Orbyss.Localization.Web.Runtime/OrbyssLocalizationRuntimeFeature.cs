@@ -13,7 +13,7 @@ namespace Orbyss.Localization.Web.Runtime;
 /// <summary>Composes immutable localization resolution and bundle reads into one selected shell.</summary>
 [ShellFeature(
     name: "Orbyss.Localization.Web.Runtime",
-    DisplayName = "Orbyss Forms Localization Runtime",
+    DisplayName = "Orbyss Localization Runtime",
     Description = "Provides independently configurable immutable message and bundle endpoints.")]
 public sealed class OrbyssLocalizationRuntimeFeature(ShellSettings settings) : IWebShellFeature
 {
@@ -27,7 +27,7 @@ public sealed class OrbyssLocalizationRuntimeFeature(ShellSettings settings) : I
         _ = endpoints.ServiceProvider.GetRequiredService<ILocalizationRuntime>();
         var options = endpoints.ServiceProvider.GetRequiredService<IOptions<LocalizationRuntimeWebOptions>>().Value;
         ValidateOptions(options);
-        var group = endpoints.MapGroup(options.RoutePrefix).WithTags("Orbyss Forms Localization Runtime");
+        var group = endpoints.MapGroup(options.RoutePrefix).WithTags("Orbyss Localization Runtime");
 
         var bundle = group.MapGet("/bundles/{scopeKind}/{languageTag}", async (HttpContext context, string scopeKind, string languageTag, string? resourceId, string? parentResourceId, ILocalizationRuntime runtime, CancellationToken cancellationToken) =>
         {

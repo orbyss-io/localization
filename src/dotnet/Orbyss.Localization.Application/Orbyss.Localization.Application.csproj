@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Provider-neutral catalog management, lifecycle, publication, and query orchestration for Orbyss Forms localization.</Description>
+    <Description>Provider-neutral localization catalog management, lifecycle, publication, and query orchestration.</Description>
     <PackageId>Orbyss.Localization.Application</PackageId>
-    <PackageTags>orbyss-forms;localization;application;lifecycle</PackageTags>
+    <PackageTags>orbyss;localization;application;lifecycle</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

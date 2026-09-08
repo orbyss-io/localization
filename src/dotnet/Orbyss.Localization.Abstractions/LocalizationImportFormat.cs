@@ -7,7 +7,7 @@ public enum LocalizationImportFormat
     Csv,
     /// <summary>An Excel workbook with an explicit sheet and column mapping.</summary>
     Xlsx,
-    /// <summary>A bounded Orbyss Forms JSON interchange document.</summary>
+    /// <summary>A bounded Orbyss Localization JSON interchange document.</summary>
     Json,
     /// <summary>An OASIS XLIFF 2.1 document.</summary>
     Xliff21,

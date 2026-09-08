@@ -1,5 +1,5 @@
 <Project>
-  <Import Project="eng/Forms.Version.props" />
+  <Import Project="eng/Localization.Version.props" />
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <LangVersion>latest</LangVersion>
@@ -12,7 +12,7 @@
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
     <Deterministic>true</Deterministic>
     <ContinuousIntegrationBuild Condition="'$(CI)' == 'true'">true</ContinuousIntegrationBuild>
-    <RepositoryUrl>https://github.com/orbyss-io/forms</RepositoryUrl>
+    <RepositoryUrl>https://github.com/orbyss-io/localization</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Authors>Orbyss</Authors>
     <Company>Orbyss</Company>

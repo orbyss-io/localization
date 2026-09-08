@@ -10,7 +10,7 @@ using Orbyss.Foundation.Mcp.AspNetCore;
 namespace Orbyss.Localization.Mcp.AspNetCore;
 
 /// <summary>Contributes governed localization tools to the shared MCP transport.</summary>
-[ShellFeature(name: "Orbyss.Localization.Mcp.AspNetCore", DisplayName = "Orbyss Forms Localization MCP", Description = "Contributes governed localization management and runtime tools to the shared MCP transport.", DependsOn = [typeof(FoundationMcpFeature)])]
+[ShellFeature(name: "Orbyss.Localization.Mcp.AspNetCore", DisplayName = "Orbyss Localization MCP", Description = "Contributes governed localization management and runtime tools to the shared MCP transport.", DependsOn = [typeof(FoundationMcpFeature)])]
 public sealed class OrbyssLocalizationMcpFeature(ShellSettings settings) : IShellFeature
 {
     /// <inheritdoc />

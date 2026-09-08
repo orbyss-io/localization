@@ -1,8 +1,8 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Description>Optional Orbyss Forms MCP contributor for governed localization tools.</Description>
+    <Description>Optional Orbyss MCP contributor for governed localization tools.</Description>
     <PackageId>Orbyss.Localization.Mcp.AspNetCore</PackageId>
-    <PackageTags>orbyss-forms;localization;mcp;cshells</PackageTags>
+    <PackageTags>orbyss;localization;mcp;cshells</PackageTags>
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <ItemGroup>

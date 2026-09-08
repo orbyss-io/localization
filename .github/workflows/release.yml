@@ -7,94 +7,57 @@ on:
 
 permissions:
   contents: read
-  packages: write
   id-token: write
   attestations: write
 
 jobs:
-  publish:
+  release:
     runs-on: ubuntu-latest
-    environment: forms-packages-production
+    environment: localization-packages-production
     steps:
       - name: Check out tagged source
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
       - name: Set up Python
         uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.13"
-
       - name: Set up .NET
         uses: actions/setup-dotnet@26b0ec14cb23fa6904739307f278c14f94c95bf1 # v5
         with:
           global-json-file: global.json
-
-      - name: Set up Node and GitHub Packages authentication
-        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version: "24.20.0"
-          registry-url: https://npm.pkg.github.com
-          scope: "@orbyss-io"
-
-      - name: Set up pinned npm
-        run: npm install --global npm@11.19.0 --ignore-scripts --no-audit --no-fund
-
       - name: Verify release tag
         shell: bash
         run: |
           expected="v$(tr -d '\r\n' < VERSION)"
           [[ "$GITHUB_REF_NAME" == "$expected" ]] || { echo "Tag must equal $expected" >&2; exit 1; }
-
-      - name: Restore, build, and test .NET family
+      - name: Restore, build, and validate
         run: |
-          dotnet restore Orbyss.Forms.slnx --locked-mode --configfile NuGet.config
-          dotnet build Orbyss.Forms.slnx -c Release --no-restore
-          python tests/validate_forms_management.py
-          python tests/validate_forms_operations.py
-          python tests/validate_forms_localization_contracts.py
+          dotnet restore Orbyss.Localization.slnx --locked-mode --configfile NuGet.config
+          dotnet build Orbyss.Localization.slnx -c Release --no-restore
+          python tests/validate_localization_contracts.py
+          python tests/validate_localization_management.py
           python tests/validate_inmemory_storage.py
-
-      - name: Build and test frontend family
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
-        run: |
-          python tests/validate_frontend_publication.py --tag "$GITHUB_REF_NAME"
-          python tests/validate_forms_frontend.py --install
-          python tests/validate_forms_frontend_packages.py
-          python tests/validate_forms_browser.py
-
-      - name: Pack package families
-        shell: bash
-        run: |
-          dotnet pack Orbyss.Forms.slnx -c Release --no-build -p:PackageOutputPath="$PWD/artifacts/nuget"
-          mkdir -p artifacts/npm
-          pushd src/typescript
-          npm pack --workspaces --pack-destination "$OLDPWD/artifacts/npm" --ignore-scripts --json > "$OLDPWD/artifacts/npm/pack.json"
-          popd
-
+      - name: Pack package family
+        run: dotnet pack Orbyss.Localization.slnx -c Release --no-build -p:PackageOutputPath="$PWD/artifacts/nuget"
       - name: Verify package family
         shell: bash
         run: |
           shopt -s nullglob
-          nuget_packages=(artifacts/nuget/*.nupkg)
-          npm_packages=(artifacts/npm/*.tgz)
-          [[ ${#nuget_packages[@]} -eq 27 ]] || { echo "Expected 27 NuGet packages, found ${#nuget_packages[@]}." >&2; exit 1; }
-          [[ ${#npm_packages[@]} -eq 12 ]] || { echo "Expected 12 npm packages, found ${#npm_packages[@]}." >&2; exit 1; }
+          packages=(artifacts/nuget/*.nupkg)
+          [[ ${#packages[@]} -eq 11 ]] || { echo "Expected 11 Localization packages, found ${#packages[@]}." >&2; exit 1; }
+          for package in "${packages[@]}"; do
+            [[ "$(basename "$package")" == Orbyss.Localization.* ]] || { echo "Unexpected package: $package" >&2; exit 1; }
+          done
           python tests/validate_package_metadata.py --packages artifacts/nuget
-
       - name: Attest packages
         uses: actions/attest@1e69f48acb82d1966a394da916b4c1698aa569d6 # v4
         with:
-          subject-path: |
-            artifacts/nuget/*.nupkg
-            artifacts/npm/*.tgz
-
+          subject-path: artifacts/nuget/*.nupkg
       - name: Authenticate with NuGet.org
         id: login
         uses: NuGet/login@8d196754b4036150537f80ac539e15c2f1028841 # v1.2.0
         with:
           user: ${{ vars.NUGET_USER }}
-
       - name: Publish NuGet packages
         env:
           NUGET_API_KEY: ${{ steps.login.outputs.NUGET_API_KEY }}
@@ -103,15 +66,5 @@ jobs:
           for package in artifacts/nuget/*.nupkg; do
             dotnet nuget push "$package" --source https://api.nuget.org/v3/index.json --api-key "$NUGET_API_KEY" --skip-duplicate
           done
-
       - name: Verify public NuGet propagation
         run: python scripts/verify_nuget_publication.py --packages artifacts/nuget --timeout-seconds 900
-
-      - name: Publish npm packages
-        env:
-          NODE_AUTH_TOKEN: ${{ github.token }}
-        shell: bash
-        run: |
-          for package in artifacts/npm/*.tgz; do
-            npm publish "$package" --registry=https://npm.pkg.github.com --access=public --tag=latest
-          done

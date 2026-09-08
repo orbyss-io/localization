@@ -1,7 +1,7 @@
 # Contributor instructions
 
-- Forms owns its .NET, TypeScript, browser, packaging, and publication suites.
-- Forms may depend on released Orbyss Foundation packages; it must not depend on Program Kit source.
-- Keep form semantics provider-neutral and keep framework bindings thin.
-- Run locked .NET restore/build, npm locked install/tests, clean package tests, and browser acceptance before tagging.
-- A stable tag is only available after the complete Release workflow succeeds.
+- Localization owns exactly the `Orbyss.Localization.*` .NET package family and its validation and publication suites.
+- Localization may depend on released Orbyss Foundation packages; it must not depend on Forms or Program Kit source.
+- Keep localization semantics provider-neutral and keep storage, web, and MCP adapters replaceable and thin.
+- Run locked .NET restore/build, contract probes, and exact 11-package validation before tagging.
+- A stable tag is only available after the complete protected Release workflow succeeds.
