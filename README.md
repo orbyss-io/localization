@@ -3,13 +3,15 @@
 Provider-neutral localization authoring, validation, import/export, immutable release, runtime,
 storage, web, and MCP building blocks maintained by Orbyss.
 
-This repository owns exactly the `Orbyss.Localization.*` .NET package family. It depends on released
+This repository owns exactly `Orbyss.Localization` and the `Orbyss.Localization.*` .NET package family. It depends on released
 `Orbyss.Foundation.*` infrastructure packages but has no dependency on Orbyss Forms or Program Kit.
 The Forms-specific adapter remains in the Forms repository as `Orbyss.Forms.Localization`.
 
 ## Package family
 
-- Semantic contracts, core validation/runtime, and application lifecycle orchestration.
+- A dependency-free abstractions package for modular consumers.
+- A primary implementation package with default validation and immutable runtime behavior.
+- Feature-based application lifecycle composition so consumers do not hand-wire the service graph.
 - CSV, JSON, PO, XLIFF 2.1, and XLSX import/export adapters.
 - Replaceable filesystem and bounded in-memory storage.
 - Optional CShells web management/runtime features and shared Foundation MCP tools.

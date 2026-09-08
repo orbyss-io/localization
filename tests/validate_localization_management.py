@@ -17,7 +17,7 @@ def references(project: Path, kind: str) -> set[str]:
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    tool = root / "src/dotnet/Orbyss.Localization.Tool/LocalizationManagementTools.cs"
+    tool = root / "src/Orbyss.Localization.Tool/LocalizationManagementTools.cs"
     source = tool.read_text(encoding="utf-8")
     names = re.findall(r'McpServerTool\(Name = "([^"]+)"', source)
     if len(names) != 16 or len(set(names)) != 16:
@@ -25,7 +25,7 @@ def main() -> int:
     if "ClaimsPrincipal" not in source or "requestedAt" not in source:
         raise AssertionError("Localization tools do not preserve trusted identity and exact replay inputs")
 
-    mcp_project = root / "src/dotnet/Orbyss.Localization.Mcp.AspNetCore/Orbyss.Localization.Mcp.AspNetCore.csproj"
+    mcp_project = root / "src/Orbyss.Localization.Mcp.AspNetCore/Orbyss.Localization.Mcp.AspNetCore.csproj"
     expected_packages = {
         "CShells.AspNetCore.Abstractions",
         "ModelContextProtocol.AspNetCore",
@@ -38,7 +38,7 @@ def main() -> int:
     }:
         raise AssertionError("Localization MCP contributor graph changed")
 
-    feature = (root / "src/dotnet/Orbyss.Localization.Mcp.AspNetCore/OrbyssLocalizationMcpFeature.cs").read_text(encoding="utf-8")
+    feature = (root / "src/Orbyss.Localization.Mcp.AspNetCore/OrbyssLocalizationMcpFeature.cs").read_text(encoding="utf-8")
     for required in ("IShellFeature", "DependsOn", "WithTools<LocalizationManagementTools>"):
         if required not in feature:
             raise AssertionError(f"Localization MCP contributor is missing {required}")

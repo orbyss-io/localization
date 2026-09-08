@@ -2,9 +2,9 @@
   <PropertyGroup><IsPackable>false</IsPackable></PropertyGroup>
   <ItemGroup>
     <PackageReference Include="CShells.AspNetCore.Abstractions" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Core/Orbyss.Localization.Core.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Web.Management/Orbyss.Localization.Web.Management.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Web.Runtime/Orbyss.Localization.Web.Runtime.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization/Orbyss.Localization.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Web.Management/Orbyss.Localization.Web.Management.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Web.Runtime/Orbyss.Localization.Web.Runtime.csproj" />
   </ItemGroup>
 </Project>

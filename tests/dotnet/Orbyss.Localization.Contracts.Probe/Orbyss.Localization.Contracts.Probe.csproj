@@ -1,10 +1,9 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup><OutputType>Exe</OutputType><IsPackable>false</IsPackable></PropertyGroup>
   <ItemGroup>
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Abstractions/Orbyss.Localization.Abstractions.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Application/Orbyss.Localization.Application.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Core/Orbyss.Localization.Core.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Storage.FileSystem/Orbyss.Localization.Storage.FileSystem.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization/Orbyss.Localization.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Application/Orbyss.Localization.Application.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Storage.FileSystem/Orbyss.Localization.Storage.FileSystem.csproj" />
   </ItemGroup>
 </Project>

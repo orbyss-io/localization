@@ -31,14 +31,14 @@
         "resolved": "2025.2.4",
         "contentHash": "TwbgxAkXxY+vNEhNVx/QXjJ4vqxmepOjsgRvvImQPbHkHMMb4W+ahL3laMsxXKtNT7iMy+E1B3xkqao2hf1n3A=="
       },
-      "orbyss.localization.abstractions": {
-        "type": "Project"
-      },
-      "orbyss.localization.core": {
+      "orbyss.localization": {
         "type": "Project",
         "dependencies": {
           "Orbyss.Localization.Abstractions": "[0.1.0, )"
         }
+      },
+      "orbyss.localization.abstractions": {
+        "type": "Project"
       },
       "orbyss.localization.formats": {
         "type": "Project",

@@ -24,7 +24,7 @@ def main() -> int:
     args = parser.parse_args()
 
     expected_version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
-    expected_ids = {project.stem for project in (ROOT / "src/dotnet").glob("*/*.csproj")}
+    expected_ids = {project.stem for project in (ROOT / "src").glob("Orbyss.Localization*/*.csproj")}
     if len(expected_ids) != 11:
         raise AssertionError(f"Expected 11 Localization package projects, found {len(expected_ids)}.")
 
@@ -45,7 +45,7 @@ def main() -> int:
             raise AssertionError(f"{package_id} has version {version}, expected {expected_version}.")
         if repository.attrib.get("url") != EXPECTED_REPOSITORY:
             raise AssertionError(f"{package_id} has the wrong repository URL.")
-        if not package_id.startswith("Orbyss.Localization."):
+        if package_id != "Orbyss.Localization" and not package_id.startswith("Orbyss.Localization."):
             raise AssertionError(f"{package_id} is outside the Localization namespace.")
         if b"ProgramKit" in nuspec:
             raise AssertionError(f"{package_id} still exposes a ProgramKit package identity.")

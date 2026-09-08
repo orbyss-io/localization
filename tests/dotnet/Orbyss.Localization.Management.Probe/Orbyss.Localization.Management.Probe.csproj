@@ -3,10 +3,10 @@
   <ItemGroup>
     <PackageReference Include="CShells.AspNetCore.Abstractions" />
     <PackageReference Include="Orbyss.Foundation.Mcp.AspNetCore" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Application/Orbyss.Localization.Application.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Core/Orbyss.Localization.Core.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Storage.InMemory/Orbyss.Localization.Storage.InMemory.csproj" />
-    <ProjectReference Include="../../../src/dotnet/Orbyss.Localization.Mcp.AspNetCore/Orbyss.Localization.Mcp.AspNetCore.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Application/Orbyss.Localization.Application.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization/Orbyss.Localization.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Storage.InMemory/Orbyss.Localization.Storage.InMemory.csproj" />
+    <ProjectReference Include="../../../src/Orbyss.Localization.Mcp.AspNetCore/Orbyss.Localization.Mcp.AspNetCore.csproj" />
   </ItemGroup>
 </Project>

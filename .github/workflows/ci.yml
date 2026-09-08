@@ -40,7 +40,7 @@ jobs:
           packages=(artifacts/nuget/*.nupkg)
           [[ ${#packages[@]} -eq 11 ]] || { echo "Expected 11 Localization packages, found ${#packages[@]}." >&2; exit 1; }
           for package in "${packages[@]}"; do
-            [[ "$(basename "$package")" == Orbyss.Localization.* ]] || { echo "Unexpected package: $package" >&2; exit 1; }
+            [[ "$(basename "$package")" == Orbyss.Localization* ]] || { echo "Unexpected package: $package" >&2; exit 1; }
           done
           python tests/validate_package_metadata.py --packages artifacts/nuget
       - name: Upload packages

@@ -1,17 +1,16 @@
 <Solution>
-  <Folder Name="/src/" />
-  <Folder Name="/src/dotnet/">
-    <Project Path="src/dotnet/Orbyss.Localization.Abstractions/Orbyss.Localization.Abstractions.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Application/Orbyss.Localization.Application.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Core/Orbyss.Localization.Core.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Mcp.AspNetCore/Orbyss.Localization.Mcp.AspNetCore.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Storage.Abstractions/Orbyss.Localization.Storage.Abstractions.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Storage.FileSystem/Orbyss.Localization.Storage.FileSystem.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Storage.InMemory/Orbyss.Localization.Storage.InMemory.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Tool/Orbyss.Localization.Tool.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Web.Management/Orbyss.Localization.Web.Management.csproj" />
-    <Project Path="src/dotnet/Orbyss.Localization.Web.Runtime/Orbyss.Localization.Web.Runtime.csproj" />
+  <Folder Name="/src/">
+    <Project Path="src/Orbyss.Localization.Abstractions/Orbyss.Localization.Abstractions.csproj" />
+    <Project Path="src/Orbyss.Localization/Orbyss.Localization.csproj" />
+    <Project Path="src/Orbyss.Localization.Application/Orbyss.Localization.Application.csproj" />
+    <Project Path="src/Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
+    <Project Path="src/Orbyss.Localization.Mcp.AspNetCore/Orbyss.Localization.Mcp.AspNetCore.csproj" />
+    <Project Path="src/Orbyss.Localization.Storage.Abstractions/Orbyss.Localization.Storage.Abstractions.csproj" />
+    <Project Path="src/Orbyss.Localization.Storage.FileSystem/Orbyss.Localization.Storage.FileSystem.csproj" />
+    <Project Path="src/Orbyss.Localization.Storage.InMemory/Orbyss.Localization.Storage.InMemory.csproj" />
+    <Project Path="src/Orbyss.Localization.Tool/Orbyss.Localization.Tool.csproj" />
+    <Project Path="src/Orbyss.Localization.Web.Management/Orbyss.Localization.Web.Management.csproj" />
+    <Project Path="src/Orbyss.Localization.Web.Runtime/Orbyss.Localization.Web.Runtime.csproj" />
   </Folder>
   <Folder Name="/tests/" />
   <Folder Name="/tests/dotnet/">

@@ -6,7 +6,7 @@ from pathlib import Path
 
 def main() -> int:
     root = Path(__file__).resolve().parents[1]
-    storage = root / "src/dotnet/Orbyss.Localization.Storage.InMemory"
+    storage = root / "src/Orbyss.Localization.Storage.InMemory"
     source = "\n".join(path.read_text(encoding="utf-8") for path in storage.glob("*.cs"))
     for contract in ("ILocalizationCatalogStore", "ILocalizationReleaseStore", "ILocalizationReleaseRetirementStore"):
         if contract not in source:

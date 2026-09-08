@@ -7,32 +7,31 @@ using Orbyss.Localization;
 using Orbyss.Localization.Formats;
 using Orbyss.Localization.Mcp.AspNetCore;
 
-var validator = new LocalizationCatalogValidator();
-var importAdapter = new JsonLocalizationImportAdapter();
-var releases = new InMemoryLocalizationReleaseStore();
-var localization = new DefaultLocalizationCatalogService(
-    new InMemoryLocalizationCatalogStore(),
-    releases,
-    releases,
-    validator,
-    new LocalizationImportCoordinator([importAdapter], validator));
-
 var builder = WebApplication.CreateBuilder();
 builder.Logging.ClearProviders();
 builder.Services.AddAuthentication("probe").AddScheme<AuthenticationSchemeOptions, TestAuthenticationHandler>("probe", _ => { });
 builder.Services.AddAuthorization();
-builder.Services.AddSingleton<ILocalizationCatalogManagement>(localization);
-builder.Services.AddSingleton<ILocalizationCatalogQueries>(localization);
-builder.Services.AddSingleton<ILocalizationReleaseLifecycle>(localization);
-builder.Services.AddSingleton<ILocalizationReleaseDiffer, DefaultLocalizationReleaseDiffer>();
-builder.Services.AddSingleton<ILocalizationImportFormatAdapter>(importAdapter);
-builder.Services.AddSingleton<ILocalizationExportFormatAdapter, JsonLocalizationExportAdapter>();
 
 var settings = new ShellSettings(
     new ShellId("localization-management"),
-    ["Orbyss.Foundation.Mcp.AspNetCore", "Orbyss.Localization.Mcp.AspNetCore"]);
+    [
+        "Orbyss.Localization",
+        "Orbyss.Localization.Formats",
+        "Orbyss.Localization.Application",
+        "Orbyss.Localization.Storage.InMemory",
+        "Orbyss.Foundation.Mcp.AspNetCore",
+        "Orbyss.Localization.Mcp.AspNetCore"
+    ]);
+var defaults = new OrbyssLocalizationFeature();
+var formats = new OrbyssLocalizationFormatsFeature();
+var application = new OrbyssLocalizationApplicationFeature();
+var storage = new OrbyssLocalizationInMemoryStorageFeature();
 var mcp = new FoundationMcpFeature(settings);
 var tools = new OrbyssLocalizationMcpFeature(settings);
+defaults.ConfigureServices(builder.Services);
+formats.ConfigureServices(builder.Services);
+application.ConfigureServices(builder.Services);
+storage.ConfigureServices(builder.Services);
 mcp.ConfigureServices(builder.Services);
 tools.ConfigureServices(builder.Services);
 
