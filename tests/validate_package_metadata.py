@@ -25,8 +25,16 @@ def main() -> int:
 
     expected_version = (ROOT / "VERSION").read_text(encoding="utf-8").strip()
     expected_ids = {project.stem for project in (ROOT / "src").glob("Orbyss.Localization*/*.csproj")}
-    if len(expected_ids) != 11:
-        raise AssertionError(f"Expected 11 Localization package projects, found {len(expected_ids)}.")
+    if len(expected_ids) != 13:
+        raise AssertionError(f"Expected 13 Localization package projects, found {len(expected_ids)}.")
+    retired_ids = {
+        "Orbyss.Localization",
+        "Orbyss.Localization.Application",
+        "Orbyss.Localization.Mcp.AspNetCore",
+        "Orbyss.Localization.Tool",
+    }
+    if expected_ids & retired_ids:
+        raise AssertionError(f"Retired Localization package identities returned: {sorted(expected_ids & retired_ids)}")
 
     found: set[str] = set()
     for package in sorted(args.packages.glob("*.nupkg")):
@@ -45,7 +53,7 @@ def main() -> int:
             raise AssertionError(f"{package_id} has version {version}, expected {expected_version}.")
         if repository.attrib.get("url") != EXPECTED_REPOSITORY:
             raise AssertionError(f"{package_id} has the wrong repository URL.")
-        if package_id != "Orbyss.Localization" and not package_id.startswith("Orbyss.Localization."):
+        if not package_id.startswith("Orbyss.Localization."):
             raise AssertionError(f"{package_id} is outside the Localization namespace.")
         if b"ProgramKit" in nuspec:
             raise AssertionError(f"{package_id} still exposes a ProgramKit package identity.")
@@ -55,7 +63,7 @@ def main() -> int:
         raise AssertionError(
             f"Package set mismatch. Missing={sorted(expected_ids - found)}, extra={sorted(found - expected_ids)}"
         )
-    print("Exact 11-package Orbyss Localization NuGet metadata contract passed.")
+    print("Exact 13-package Orbyss Localization NuGet metadata contract passed.")
     return 0
 
 

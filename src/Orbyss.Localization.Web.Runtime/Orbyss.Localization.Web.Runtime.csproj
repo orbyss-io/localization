@@ -9,6 +9,7 @@
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="CShells.AspNetCore.Abstractions" PrivateAssets="all" />
     <ProjectReference Include="../Orbyss.Localization.Abstractions/Orbyss.Localization.Abstractions.csproj" />
+    <ProjectReference Include="../Orbyss.Localization.Runtime/Orbyss.Localization.Runtime.csproj" />
   </ItemGroup>
   <ItemGroup><None Include="README.md" Pack="true" PackagePath="/" /></ItemGroup>
 </Project>

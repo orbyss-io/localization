@@ -18,14 +18,6 @@
         "resolved": "0.1.0",
         "contentHash": "eGRExasVN58KAE8gd5/AHo6ySmypKD6QLxRivM3ufLnUWRchoPVaclwFktX6QINmyDzzrtio7HX1aXnqqlxtCw=="
       },
-      "CShells.Abstractions": {
-        "type": "Transitive",
-        "resolved": "0.0.29-preview.147",
-        "contentHash": "0fBss0kPNYAdUovGowMP1iq6m4U1DWgNb0KvgIriINrZ1OX2p/CXmHzIdkY3NFedSrMbc5pWvsSxE4IFFEvPKA==",
-        "dependencies": {
-          "JetBrains.Annotations": "2025.2.4"
-        }
-      },
       "JetBrains.Annotations": {
         "type": "Transitive",
         "resolved": "2025.2.4",
@@ -33,6 +25,35 @@
       },
       "orbyss.localization.abstractions": {
         "type": "Project"
+      },
+      "orbyss.localization.formats": {
+        "type": "Project",
+        "dependencies": {
+          "Orbyss.Localization.Abstractions": "[0.1.1, )"
+        }
+      },
+      "orbyss.localization.management": {
+        "type": "Project",
+        "dependencies": {
+          "Orbyss.Localization.Abstractions": "[0.1.1, )",
+          "Orbyss.Localization.Formats": "[0.1.1, )",
+          "Orbyss.Localization.Storage.Abstractions": "[0.1.1, )"
+        }
+      },
+      "orbyss.localization.storage.abstractions": {
+        "type": "Project",
+        "dependencies": {
+          "Orbyss.Localization.Abstractions": "[0.1.1, )"
+        }
+      },
+      "CShells.Abstractions": {
+        "type": "CentralTransitive",
+        "requested": "[0.0.29-preview.147, )",
+        "resolved": "0.0.29-preview.147",
+        "contentHash": "0fBss0kPNYAdUovGowMP1iq6m4U1DWgNb0KvgIriINrZ1OX2p/CXmHzIdkY3NFedSrMbc5pWvsSxE4IFFEvPKA==",
+        "dependencies": {
+          "JetBrains.Annotations": "2025.2.4"
+        }
       }
     }
   }

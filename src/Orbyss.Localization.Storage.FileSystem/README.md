@@ -6,5 +6,5 @@ optimistic versions, and have an explicit size ceiling. Release identifiers are 
 filenames, payloads carry their own digest, and immutable content cannot be overwritten.
 
 Writes are serialized within one process. Multi-instance deployments should select a transactional
-database adapter rather than share this filesystem adapter across processes. No ASP.NET Core, DI,
-or Host dependency is introduced.
+database adapter rather than share this filesystem adapter across processes. Its CShells feature
+registers the storage ports through DI without introducing ASP.NET Core or Host dependencies.

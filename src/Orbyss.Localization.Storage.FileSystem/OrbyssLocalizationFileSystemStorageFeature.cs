@@ -2,7 +2,6 @@ using CShells;
 using CShells.Features;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Orbyss.Localization.Formats;
 
 namespace Orbyss.Localization;
 
@@ -10,8 +9,7 @@ namespace Orbyss.Localization;
 [ShellFeature(
     name: "Orbyss.Localization.Storage.FileSystem",
     DisplayName = "Orbyss Localization File-System Storage",
-    Description = "Provides atomic content-verified catalog and immutable-release persistence.",
-    DependsOn = [typeof(OrbyssLocalizationApplicationFeature), typeof(OrbyssLocalizationFormatsFeature)])]
+    Description = "Provides atomic content-verified catalog and immutable-release persistence.")]
 public sealed class OrbyssLocalizationFileSystemStorageFeature(ShellSettings settings) : IShellFeature
 {
     /// <summary>Configuration section for the owned storage root.</summary>

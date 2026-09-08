@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Default immutable release-backed localization message and bundle resolution.</Description>
+    <PackageId>Orbyss.Localization.Runtime</PackageId>
+    <PackageTags>orbyss;localization;i18n;runtime;resolution</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CShells.Abstractions" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <ProjectReference Include="../Orbyss.Localization.Abstractions/Orbyss.Localization.Abstractions.csproj" />
+    <ProjectReference Include="../Orbyss.Localization.Storage.Abstractions/Orbyss.Localization.Storage.Abstractions.csproj" />
+    <None Include="README.md" Pack="true" PackagePath="/" />
+  </ItemGroup>
+</Project>

@@ -11,7 +11,7 @@ def main() -> int:
     for contract in ("ILocalizationCatalogStore", "ILocalizationReleaseStore", "ILocalizationReleaseRetirementStore"):
         if contract not in source:
             raise AssertionError(f"The in-memory Localization adapter does not implement {contract}")
-    probe = root / "tests/dotnet/Orbyss.Localization.Storage.InMemory.Probe/Orbyss.Localization.Storage.InMemory.Probe.csproj"
+    probe = root / "tests/Orbyss.Localization.Storage.InMemory.Probe/Orbyss.Localization.Storage.InMemory.Probe.csproj"
     result = subprocess.run(
         ["dotnet", "run", "--project", str(probe), "--configuration", "Release", "--no-build"],
         cwd=root,

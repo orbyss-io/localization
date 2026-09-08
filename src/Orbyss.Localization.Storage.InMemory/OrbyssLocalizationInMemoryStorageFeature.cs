@@ -1,7 +1,6 @@
 using CShells.Features;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Orbyss.Localization.Formats;
 
 namespace Orbyss.Localization;
 
@@ -9,8 +8,7 @@ namespace Orbyss.Localization;
 [ShellFeature(
     name: "Orbyss.Localization.Storage.InMemory",
     DisplayName = "Orbyss Localization In-Memory Storage",
-    Description = "Provides bounded process-local catalog and release storage.",
-    DependsOn = [typeof(OrbyssLocalizationApplicationFeature), typeof(OrbyssLocalizationFormatsFeature)])]
+    Description = "Provides bounded process-local catalog and release storage.")]
 public sealed class OrbyssLocalizationInMemoryStorageFeature : IShellFeature
 {
     /// <inheritdoc />

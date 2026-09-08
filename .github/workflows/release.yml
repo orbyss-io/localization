@@ -37,14 +37,19 @@ jobs:
           python tests/validate_localization_contracts.py
           python tests/validate_localization_management.py
           python tests/validate_inmemory_storage.py
+          python tests/validate_package_retirement.py
       - name: Pack package family
-        run: dotnet pack Orbyss.Localization.slnx -c Release --no-build -p:PackageOutputPath="$PWD/artifacts/nuget"
+        shell: bash
+        run: |
+          for project in src/Orbyss.Localization*/*.csproj; do
+            dotnet pack "$project" -c Release --no-build -p:PackageOutputPath="$PWD/artifacts/nuget"
+          done
       - name: Verify package family
         shell: bash
         run: |
           shopt -s nullglob
           packages=(artifacts/nuget/*.nupkg)
-          [[ ${#packages[@]} -eq 11 ]] || { echo "Expected 11 Localization packages, found ${#packages[@]}." >&2; exit 1; }
+          [[ ${#packages[@]} -eq 13 ]] || { echo "Expected 13 Localization packages, found ${#packages[@]}." >&2; exit 1; }
           for package in "${packages[@]}"; do
             [[ "$(basename "$package")" == Orbyss.Localization* ]] || { echo "Unexpected package: $package" >&2; exit 1; }
           done

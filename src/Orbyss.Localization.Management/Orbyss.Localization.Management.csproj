@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <Description>Provider-neutral localization authoring, validation, import, lifecycle, publication, and query orchestration.</Description>
+    <PackageId>Orbyss.Localization.Management</PackageId>
+    <PackageTags>orbyss;localization;management;authoring;lifecycle</PackageTags>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CShells.Abstractions" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" />
+    <ProjectReference Include="../Orbyss.Localization.Abstractions/Orbyss.Localization.Abstractions.csproj" />
+    <ProjectReference Include="../Orbyss.Localization.Formats/Orbyss.Localization.Formats.csproj" />
+    <ProjectReference Include="../Orbyss.Localization.Storage.Abstractions/Orbyss.Localization.Storage.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup><None Include="README.md" Pack="true" PackagePath="/" /></ItemGroup>
+</Project>

@@ -9,12 +9,17 @@ The Forms-specific adapter remains in the Forms repository as `Orbyss.Forms.Loca
 
 ## Package family
 
-- A dependency-free abstractions package for modular consumers.
-- A primary implementation package with default validation and immutable runtime behavior.
-- Feature-based application lifecycle composition so consumers do not hand-wire the service graph.
-- CSV, JSON, PO, XLIFF 2.1, and XLSX import/export adapters.
-- Replaceable filesystem and bounded in-memory storage.
-- Optional CShells web management/runtime features and shared Foundation MCP tools.
+- `Orbyss.Localization.Abstractions` provides dependency-free contracts for modular consumers.
+- `Orbyss.Localization.Management` composes authoring, validation, import, lifecycle, publication, queries, and release comparison.
+- `Orbyss.Localization.Runtime` resolves messages and bundles from the latest non-retired release of one configured catalog.
+- `Orbyss.Localization.Formats` provides CSV, JSON, PO, XLIFF 2.1, and XLSX import/export adapters.
+- `Orbyss.Localization.Storage.*` keeps persistence ports, filesystem storage, and bounded in-memory storage replaceable.
+- `Orbyss.Localization.Web.Management` and `.Web.Runtime` expose separately selectable HTTP capabilities.
+- `Orbyss.Localization.Management.Tool`/`.Management.Mcp.AspNetCore` keep privileged tools separate from the read-only `Runtime.Tool`/`Runtime.Mcp.AspNetCore` pair.
+
+Every concrete package exposes a CShells feature. Storage features register only their adapter,
+Management depends on the built-in Formats feature, and the web/MCP features depend on their exact
+Management or Runtime implementation feature.
 
 ## Build
 
@@ -27,4 +32,4 @@ python tests/validate_inmemory_storage.py
 ```
 
 Stable tags must equal `v` plus the exact value in `VERSION`. The protected Release workflow packs,
-attests, publishes, and verifies the complete 11-package family through NuGet trusted publishing.
+attests, publishes, and verifies the complete 13-package family through NuGet trusted publishing.
