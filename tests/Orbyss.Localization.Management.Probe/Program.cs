@@ -49,10 +49,15 @@ await app.StartAsync();
 try
 {
     using var client = new HttpClient { BaseAddress = new Uri(app.Urls.Single()) };
-    using var anonymous = await client.PostAsync(
-        "/orbyss-foundation/mcp",
-        new StringContent("{}", System.Text.Encoding.UTF8, "application/json"));
-    Require(anonymous.StatusCode == HttpStatusCode.Unauthorized, "shared MCP allowed anonymous access");
+    // Inspect authorization headers without buffering the transport response body.
+    using (var request = new HttpRequestMessage(HttpMethod.Post, "/orbyss-foundation/mcp")
+    {
+        Content = new StringContent("{}", System.Text.Encoding.UTF8, "application/json")
+    })
+    using (var anonymous = await client.SendAsync(request, HttpCompletionOption.ResponseHeadersRead))
+    {
+        Require(anonymous.StatusCode == HttpStatusCode.Unauthorized, "shared MCP allowed anonymous access");
+    }
 
     var transport = new HttpClientTransport(new HttpClientTransportOptions
     {
