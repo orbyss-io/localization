@@ -27,6 +27,12 @@
         "resolved": "0.1.0",
         "contentHash": "eGRExasVN58KAE8gd5/AHo6ySmypKD6QLxRivM3ufLnUWRchoPVaclwFktX6QINmyDzzrtio7HX1aXnqqlxtCw=="
       },
+      "Orbyss.Foundation.Build": {
+        "type": "Direct",
+        "requested": "[0.1.0, )",
+        "resolved": "0.1.0",
+        "contentHash": "fUa2oNi23gAjFgVIhyjqmhXwAo6S++p7nCJ2XOiU23tOrpRIDSDg22wLnIsWEexs9x4BT6aLDjEvoaICU7SBnw=="
+      },
       "Orbyss.Foundation.Mcp.AspNetCore": {
         "type": "Direct",
         "requested": "[0.1.0, )",

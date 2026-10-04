@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Storage.InMemory",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Storage.InMemory",
+      "featureDependencies": [],
+      "runtimeDependencies": [],
+      "routes": [],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false
+    }
+  ],
+  "sourceSha256": {
+    "InMemoryLocalizationCatalogDocument.cs": "648239e26e0964b3c9d1ed5bd72b9fbe7c09872f136db8de425476a34e150925",
+    "InMemoryLocalizationCatalogReplay.cs": "7fe98d4ef5be960e7de16c73042b0ace6b4cce97ef625706127052a808c6b61c",
+    "InMemoryLocalizationCatalogStore.cs": "4f38694915b02ffacd09123ed5beed148b7495840b4c56f0e126703787e72475",
+    "InMemoryLocalizationReleaseStore.cs": "134d947db333a34c340bd76d2c8e0c43705e5e8a61d57993b9dfd5999cc0c6eb",
+    "InMemoryLocalizationRetirement.cs": "d0704804e66b0b02617190fcb5fad62da6ce423a6a6bda3ff4bc71fb6c5aa727",
+    "InMemoryLocalizationStorageCodec.cs": "5445e1ee22907b5e03fa2e62c4ae3ccab45a6ff2eebdc36e36ab11c0048a7615",
+    "InMemoryLocalizationStorageOptions.cs": "9c71da69b48906605572f72c41891ee3b927c667722f8265b08837956ae0f8ed",
+    "OrbyssLocalizationInMemoryStorageFeature.cs": "18da2ad2fd3ccbdfc4206213a71f91702a36ae1687411d03b8ad3271a2914ac3"
+  }
+}

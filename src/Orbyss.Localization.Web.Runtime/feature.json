@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Web.Runtime",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Web.Runtime",
+      "featureDependencies": [
+        "Orbyss.Localization.Runtime"
+      ],
+      "runtimeDependencies": [],
+      "routes": [
+        "/_orbyss-localization/runtime/bundles/{scopeKind}/{languageTag}",
+        "/_orbyss-localization/runtime/messages/{scopeKind}/{languageTag}/{key}"
+      ],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false,
+      "routePrefixConfigurationPath": "Orbyss:Localization:Runtime:RoutePrefix",
+      "routeSuffixes": [
+        "/bundles/{scopeKind}/{languageTag}",
+        "/messages/{scopeKind}/{languageTag}/{key}"
+      ]
+    }
+  ],
+  "sourceSha256": {
+    "LocalizationRuntimeWebOptions.cs": "8cc8a4403f675b871fe111254339495ae7ee6b8f88fda22846452b127f3ec747",
+    "OrbyssLocalizationRuntimeWebFeature.cs": "03faf9b10f783cbb853a4ba5ec3cc1ecff116e6509f8f57a74479e4d2904fc28"
+  }
+}

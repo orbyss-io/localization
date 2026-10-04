@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Runtime",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Runtime",
+      "featureDependencies": [],
+      "runtimeDependencies": [],
+      "routes": [],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false
+    }
+  ],
+  "sourceSha256": {
+    "DefaultLocalizationRuntime.cs": "8e8f54391141acb8c7996af2f253e1afcc2bb2140e3926e454b54ca36b93e5d1",
+    "InMemoryLocalizationRuntime.cs": "307fb139e1a8ae1b3e8cfe259c98f2ceddc04362e3f4322ab5faa1f5f3324098",
+    "LocalizationRuntimeOptions.cs": "6ffab99a37fef0aa2e318570811286c2b23b760bdb822830aad1e419ef33034c",
+    "OrbyssLocalizationRuntimeFeature.cs": "688f625bbf83076e810181bc0eebf2b6bb51a330a266c321001dac79a203fc7e"
+  }
+}

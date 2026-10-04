@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Storage.FileSystem",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Storage.FileSystem",
+      "featureDependencies": [],
+      "runtimeDependencies": [],
+      "routes": [],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false
+    }
+  ],
+  "sourceSha256": {
+    "FileSystemLocalizationCatalogStore.cs": "4d34006f876d124bc1f48c3df373d25198a2aa246319a8d327076ef8a005cf2e",
+    "FileSystemLocalizationCatalogStoreOptions.cs": "c10ab13025f4761204f37ea816fc4fa99175998caec67a686b4bae04a11c82e1",
+    "FileSystemLocalizationReleaseStore.cs": "5f51c699c437f33019470c517426eae193e34685d70a1d61f52dd2cc385515b0",
+    "FileSystemLocalizationReleaseStoreOptions.cs": "af7ccdbbd90bbbdd87eea344b04be831f0d0035839f87f98c1f62071f487912d",
+    "OrbyssLocalizationFileSystemStorageFeature.cs": "31e4db5120a754b3529a57eba20ad8a221f801b79c1aaccbfffe4d8ff2f3d8ed",
+    "StoredLocalizationCatalogCommand.cs": "97d3b9335ebdb11f6be755d363efac6829856034d8823552ea15822ad8aed65f",
+    "StoredLocalizationCatalogDocument.cs": "148d9c35de40ed72ebd5f64bef7f482d327042fae1146a91e8938924e5199662",
+    "StoredLocalizationRetirement.cs": "841f3e173514932c6ebcb5105d720e62ed2f6faa3857ca97f9a91397abd1f4ac"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Management",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Management",
+      "featureDependencies": [
+        "Orbyss.Localization.Formats"
+      ],
+      "runtimeDependencies": [],
+      "routes": [],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false
+    }
+  ],
+  "sourceSha256": {
+    "DefaultLocalizationCatalogService.cs": "64d77f189a1ba8a0fa74d807a002558db7d191e67411591de44adbe877a93c22",
+    "DefaultLocalizationReleaseDiffer.cs": "9754317de8aba5197fe11bfa94370583aa35c4a0d5a5422937f93373632238e2",
+    "LocalizationCatalogValidator.cs": "6d360836bd7d4ff7214ea00ecd88b95956c1fcd499761e22f670580ea1d86a6e",
+    "LocalizationImportCoordinator.cs": "5e676a38bb9ee5b38b373392f2f840f724e0b953b0048219884df0f5de5da672",
+    "LocalizationImportCoordinatorOptions.cs": "d3bc372c66920298ca4d0ad702e7722e674e1f02700cbfa2dffb8b6c61b1f180",
+    "LocalizationValidationOptions.cs": "46c654b40c080e82d90b37f72abc79556b82508014e6d0e7ebac746c39ce3a4f",
+    "OrbyssLocalizationManagementFeature.cs": "5bbf42f421d8097524258674dded86a395c3b04e87dc6fadb33e8247c7dd59a2",
+    "StoredApplication.cs": "9be5495258e1f256728dec1f6e0d964762e8e6f322fb480221d3ed23bdadf790",
+    "StoredPreview.cs": "097a9fa0ea2512a2cdae9127429be99d3d91b29602d4dc811d55d3814f985097"
+  }
+}
