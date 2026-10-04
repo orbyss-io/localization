@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Management.Mcp.AspNetCore",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Management.Mcp.AspNetCore",
+      "featureDependencies": [
+        "Orbyss.Foundation.Mcp.AspNetCore",
+        "Orbyss.Localization.Management"
+      ],
+      "runtimeDependencies": [],
+      "routes": [],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false
+    }
+  ],
+  "sourceSha256": {
+    "LocalizationManagementMcpOptions.cs": "10d6a25188abd46740fcca5a6e0529296faa9f4dc74cb91697f3d80d5fd68714",
+    "OrbyssLocalizationManagementMcpFeature.cs": "c9924c9d1f58b4af125f2bb606907e32a33523096796549edec5bdb0651273ca"
+  }
+}

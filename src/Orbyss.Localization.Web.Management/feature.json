@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Web.Management",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Web.Management",
+      "featureDependencies": [
+        "Orbyss.Localization.Management"
+      ],
+      "runtimeDependencies": [],
+      "routes": [
+        "/_orbyss-localization/catalogs",
+        "/_orbyss-localization/catalogs/validate",
+        "/_orbyss-localization/catalogs/{catalogId}",
+        "/_orbyss-localization/catalogs/{catalogId}/exports",
+        "/_orbyss-localization/catalogs/{catalogId}/imports/preview",
+        "/_orbyss-localization/catalogs/{catalogId}/imports/{previewId}/apply",
+        "/_orbyss-localization/releases/{baselineId}/diff/{candidateId}",
+        "/_orbyss-localization/releases/{releaseId}",
+        "/_orbyss-localization/releases/{releaseId}/retire"
+      ],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false,
+      "routePrefixConfigurationPath": "Orbyss:Localization:Management:RoutePrefix",
+      "routeSuffixes": [
+        "/catalogs",
+        "/catalogs/validate",
+        "/catalogs/{catalogId}",
+        "/catalogs/{catalogId}/exports",
+        "/catalogs/{catalogId}/imports/preview",
+        "/catalogs/{catalogId}/imports/{previewId}/apply",
+        "/releases/{baselineId}/diff/{candidateId}",
+        "/releases/{releaseId}",
+        "/releases/{releaseId}/retire"
+      ],
+      "dynamicRoutesFromConfiguration": true
+    }
+  ],
+  "sourceSha256": {
+    "LocalizationCatalogWriteRequest.cs": "9eea2c185f0636f40b18ecbed625a0bc618a3e0d6b786bf664a19feee605d3c1",
+    "LocalizationExportWebRequest.cs": "c731207786b1210b1b0abac3f834d2b595516c2a19c18c9b2b8f15158ef7387f",
+    "LocalizationImportApplyModel.cs": "a98c02f1379525b4da91cdf761c761e30861a5feca5dc6b31554855cdff5ea15",
+    "LocalizationImportUploadModel.cs": "8b20cb388654f3bf057d45643c5e924fad8f677d9a1d67fae7765ac7f0c162e3",
+    "LocalizationManagementWebOptions.cs": "0e3c6941f48c47ab6a8a371fca24f2b4de1e520242c2c0a76a1cc79881d7cef4",
+    "LocalizationWebMutation.cs": "b5f236152c4bad63fc4a9a3070b9085ae40cd95e7ebea4d80990f031ca9e67b1",
+    "OrbyssLocalizationManagementWebFeature.cs": "69340684b80f9bbc899e9a04d82ad0bbbc55f18576df6289d6c7175c738c47c6"
+  }
+}

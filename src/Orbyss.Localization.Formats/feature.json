@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 2,
+  "packageId": "Orbyss.Localization.Formats",
+  "features": [
+    {
+      "identity": "Orbyss.Localization.Formats",
+      "featureDependencies": [],
+      "runtimeDependencies": [],
+      "routes": [],
+      "dormant": true,
+      "composeForOpenApi": false,
+      "requiresContractCoverage": false
+    }
+  ],
+  "sourceSha256": {
+    "CsvLocalizationExportAdapter.cs": "024e73138d5aa942e1066edcf50a26b2fd217080a7d647d5558ba58817c185ea",
+    "CsvLocalizationImportAdapter.cs": "425439b0e36abcbbd98cbb2df914aa7d52d5cd0c9a27959a9a20815cadd2c90e",
+    "ExportGuards.cs": "cf207a90d3d4bc1e41be71376018f90dc4b06e7d428140581796f061a471067f",
+    "FormatGuards.cs": "6852d2a4fcbb94a733dfe4ecda2274f11b75e6011f3a2c6d035ef7d5878b274e",
+    "JsonLocalizationExportAdapter.cs": "e58c4cdbbd167082b880b0bbc04870581ead82214032a8b795d5ea161f7fb877",
+    "JsonLocalizationImportAdapter.cs": "096f79451837513ee18891f1dbd73e8aa4536fd6b3a20f84f697a1268c950905",
+    "LocalizationExportEntry.cs": "57a785e2d22a0c742f5253ec7539b4f2b523055cc7adc1a9098be9e584afa3d7",
+    "LocalizationExportFormatOptions.cs": "f7a5109acdf510facc2659a68dfeeafd426d04a77afdd247afbf1c1299de0d37",
+    "LocalizationImportFormatException.cs": "898916eec475bdd7f95a4dff19beaae9a5b71ef95cac7ef71b78e77fac8e9dcf",
+    "LocalizationImportFormatOptions.cs": "2845ba480104ed26c24f63793871e141a8fd3fcd490f8fa13a2dc7887c8df2fe",
+    "OrbyssLocalizationFormatsFeature.cs": "95000aae5bf8ad5c085ef0b2089b6796ebb6d8ab75e88c9354fd395e800804a4",
+    "PoLocalizationExportAdapter.cs": "27fafe65893b1371c90bbdc70bbfce42be54836ae52dc19a774ebc38a3d67466",
+    "PoLocalizationImportAdapter.cs": "ff063a7e0a8728de4567b72840eed46c5b95c43c9e10c0c83d1a3938a09643e7",
+    "TabularLocalizationExport.cs": "ef2a389e6ef442be00d21f88fc1d6595494bf622fd03377fa80cf7a63824eb45",
+    "TabularLocalizationImport.cs": "79156b0a7926664b8c4020abffc5e4baad1b74cca10706d966065d152d03195d",
+    "Xliff21LocalizationExportAdapter.cs": "56c9e4f1e361b2e6ababa73f9267a24d1c4b02bb0d3e4bf9965b6d1b4dc790eb",
+    "Xliff21LocalizationImportAdapter.cs": "bc5798bfcebfb7ac2dc6703d093e16941c326e43139f7f959edf1ce789059d2a",
+    "XlsxLocalizationExportAdapter.cs": "7f7682550d926059e945eb67b9818785e6a0746e1370ac278c50af6006b450fb",
+    "XlsxLocalizationImportAdapter.cs": "55e9748584da34a39c075424fddd56925aab52af263f980aab40eb534a9995f6",
+    "XmlImport.cs": "8988f6bebd521ed91907741d0911076f76e52fce55283c0b7a7b5b1aa1f7873d"
+  }
+}

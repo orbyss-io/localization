@@ -29,42 +29,42 @@
       "orbyss.localization.formats": {
         "type": "Project",
         "dependencies": {
-          "Orbyss.Localization.Abstractions": "[0.1.1, )"
+          "Orbyss.Localization.Abstractions": "[0.1.2, )"
         }
       },
       "orbyss.localization.management": {
         "type": "Project",
         "dependencies": {
-          "Orbyss.Localization.Abstractions": "[0.1.1, )",
-          "Orbyss.Localization.Formats": "[0.1.1, )",
-          "Orbyss.Localization.Storage.Abstractions": "[0.1.1, )"
+          "Orbyss.Localization.Abstractions": "[0.1.2, )",
+          "Orbyss.Localization.Formats": "[0.1.2, )",
+          "Orbyss.Localization.Storage.Abstractions": "[0.1.2, )"
         }
       },
       "orbyss.localization.runtime": {
         "type": "Project",
         "dependencies": {
-          "Orbyss.Localization.Abstractions": "[0.1.1, )",
-          "Orbyss.Localization.Storage.Abstractions": "[0.1.1, )"
+          "Orbyss.Localization.Abstractions": "[0.1.2, )",
+          "Orbyss.Localization.Storage.Abstractions": "[0.1.2, )"
         }
       },
       "orbyss.localization.storage.abstractions": {
         "type": "Project",
         "dependencies": {
-          "Orbyss.Localization.Abstractions": "[0.1.1, )"
+          "Orbyss.Localization.Abstractions": "[0.1.2, )"
         }
       },
       "orbyss.localization.web.management": {
         "type": "Project",
         "dependencies": {
-          "Orbyss.Localization.Abstractions": "[0.1.1, )",
-          "Orbyss.Localization.Management": "[0.1.1, )"
+          "Orbyss.Localization.Abstractions": "[0.1.2, )",
+          "Orbyss.Localization.Management": "[0.1.2, )"
         }
       },
       "orbyss.localization.web.runtime": {
         "type": "Project",
         "dependencies": {
-          "Orbyss.Localization.Abstractions": "[0.1.1, )",
-          "Orbyss.Localization.Runtime": "[0.1.1, )"
+          "Orbyss.Localization.Abstractions": "[0.1.2, )",
+          "Orbyss.Localization.Runtime": "[0.1.2, )"
         }
       },
       "CShells.Abstractions": {
